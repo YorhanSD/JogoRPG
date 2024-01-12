@@ -1,5 +1,6 @@
 ﻿using System;
 using JogoRPG.src.Entities;
+using JogoRPG.src.Functions;
 
 namespace dotnet_poo
 {
@@ -7,27 +8,24 @@ namespace dotnet_poo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Bem Vindo!");
+            Console.WriteLine("Welcome!");
 
-            Heroi falcaoNegro = new Heroi("Falcão-Negro",78,780,"Voador");
-            Heroi ventoSelvagem = new Heroi("Vento-Selvagem",65,650,"Atirador");
-            Vilan machadoDeGuerra = new Vilan("Machado-de-Guerra",72,720,"Corpo-a-Corpo");
+            ListCharacters lC = new ListCharacters();
 
-            Console.WriteLine(falcaoNegro);
-            Console.WriteLine(ventoSelvagem);
-            Console.WriteLine(machadoDeGuerra);
+            Hero falcaoNegro = new Hero("Falcão-Negro",780,"Voador");
+            Hero punhoLaminado = new Hero("Punho-Laminado",950,"Variado");
+            Hero ventoSelvagem = new Hero("Vento-Selvagem",650,"Atirador");
+            Villain machadoDeGuerra = new Villain("Machado-de-Guerra",720,"Corpo-a-Corpo");
+            Villain pilgrim = new Villain("Pilgrim",800,"Corpo-a-Corpo");
+            Villain srCorrentes = new Villain("Sr. Correntes",640,"Magico");
 
-            falcaoNegro.moral = 48;
-            machadoDeGuerra.numVitimas = 110;
+            lC.listCharacters.Add(falcaoNegro);
+            lC.listCharacters.Add(punhoLaminado);
+            lC.listCharacters.Add(ventoSelvagem);
+            lC.listCharacters.Add(machadoDeGuerra);
 
-            falcaoNegro.Attack(machadoDeGuerra);
-            falcaoNegro.Damage(128,machadoDeGuerra);
-            machadoDeGuerra.Attack(falcaoNegro);
-            machadoDeGuerra.Damage(96,falcaoNegro);
-            falcaoNegro.Especial();
-            falcaoNegro.AtaqueEspecial(256,machadoDeGuerra);
-            machadoDeGuerra.Especial();
-            machadoDeGuerra.AtaqueEspecial(192,falcaoNegro);
+            lC.ListCreatedCharacters();
+
         }
     }
 }
